@@ -97,27 +97,38 @@ Some module usage examples are provided in the `examples` directory:
 Generated using [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform), run `pre-commit run -a` to update manually.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| helm | ~> 0.10 |
+| kubernetes | ~> 1.7 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| aae\_license | location of your AAE license file | string | n/a | yes |
-| acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | string | `"true"` | no |
-| aws\_efs\_dns\_name | EFS DNS name to be used for ACS file storage (optional AWS only) | string | `""` | no |
-| cluster\_name | name for your cluster, if not set it will be a concatenation of project_name and project_environment | string | `""` | no |
-| gateway\_host | gateway host name | string | n/a | yes |
-| helm\_service\_account | service account used by helm | string | `"tiller"` | no |
-| http | use http rather than https for urls | string | `"false"` | no |
-| kubernetes\_api\_server | Kubernetes API server URL | string | `"https://kubernetes"` | no |
-| kubernetes\_token | Kubernetes API token | string | `""` | no |
-| project\_environment | project environment like dev/prod/staging | string | n/a | yes |
-| project\_name | project name | string | n/a | yes |
-| quay\_password | quay user password | string | n/a | yes |
-| quay\_url | quay url in docker registry format, defaults to "quay.io" | string | `"quay.io"` | no |
-| quay\_user | quay user name | string | n/a | yes |
-| registry\_host | docker registry host name | string | n/a | yes |
-| registry\_password | password for the deployment docker registry | string | `"password"` | no |
-| registry\_user | username for the deployment docker registry | string | `"registry"` | no |
-| zone\_domain | Zone domain | string | n/a | yes |
+|------|-------------|------|---------|:-----:|
+| aae\_license | location of your AAE license file | `any` | n/a | yes |
+| acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | `bool` | `true` | no |
+| aws\_efs\_dns\_name | EFS DNS name to be used for ACS file storage (optional AWS only) | `string` | `""` | no |
+| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `string` | `""` | no |
+| gateway\_host | gateway host name | `any` | n/a | yes |
+| helm\_service\_account | service account used by helm | `string` | `"tiller"` | no |
+| http | use http rather than https for urls | `string` | `"false"` | no |
+| kubernetes\_api\_server | Kubernetes API server URL | `string` | `"https://kubernetes"` | no |
+| kubernetes\_token | Kubernetes API token | `string` | `""` | no |
+| project\_environment | project environment like dev/prod/staging | `any` | n/a | yes |
+| project\_name | project name | `any` | n/a | yes |
+| quay\_password | quay user password | `any` | n/a | yes |
+| quay\_url | quay url in docker registry format, defaults to "quay.io" | `string` | `"quay.io"` | no |
+| quay\_user | quay user name | `any` | n/a | yes |
+| registry\_host | docker registry host name | `any` | n/a | yes |
+| registry\_password | password for the deployment docker registry | `string` | `"password"` | no |
+| registry\_user | username for the deployment docker registry | `string` | `"registry"` | no |
+| zone\_domain | Zone domain | `any` | n/a | yes |
+
+## Outputs
+
+No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

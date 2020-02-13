@@ -76,37 +76,46 @@ As the terraform providers config is static the terraform command must be split 
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | ~> 2.17 |
+| null | n/a |
+| rancher2 | ~> 1.0 |
+| template | ~> 2.1 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | string | `"true"` | no |
-| aae\_license | location of your AAE license file | string | n/a | yes |
-| aws\_access\_key\_id | AWS access key | string | n/a | yes |
-| aws\_region | AWS region | string | n/a | yes |
-| aws\_secret\_access\_key | AWS secret key | string | n/a | yes |
-| cluster\_description | description for your cluster | string | `""` | no |
-| cluster\_name | name for your cluster, if not set it will be a concatenation of project_name and project_environment | string | n/a | yes |
-| gateway\_host | gateway host | string | `""` | no |
-| identity\_host | identity host | string | `""` | no |
-| kubernetes\_api\_server | Kubernetes API server URL | string | `"https://kubernetes"` | no |
-| kubernetes\_token | Kubernetes API token | string | `""` | no |
-| my\_ip\_address | CIDR blocks for ssh access to cluster nodes | string | `"0.0.0.0/0"` | no |
-| project\_environment | project environment like dev/prod/stagings | string | n/a | yes |
-| project\_name | project name | string | n/a | yes |
-| quay_email | quay user email | string | n/a | yes |
-| quay\_password | quay user password | string | n/a | yes |
-| quay\_url | quay url in docker registry format, defaults to "quay.io" | string | `"quay.io"` | no |
-| quay\_user | quay user name | string | n/a | yes |
-| rancher2\_access\_key | Rancher 2 API access key for a user who can create clusters, you can login on Rancher2 and create from the "API & Keys" menu on your account or the URL /apikeys | string | n/a | yes |
-| rancher2\_secret\_key | Rancher 2 API secret key for a user who can create clusters, you can login on Rancher2 and create from the "API & Keys" menu on your account or the URL /apikeys | string | n/a | yes |
-| rancher2\_url | the URL of the Rancher2 server | string | n/a | yes |
-| registry\_host | deployment docker registry | string | `""` | no |
-| registry\_password | password for the deployment docker registry | string | `"password"` | no |
-| registry\_user | username for the deployment docker registry | string | `"registry"` | no |
-| ssh\_public\_key | public key for authentication on cluster nodes | string | `""` | no |
-| ssh\_username | username to create user on cluster nodes | string | `"aae"` | no |
-| zone\_domain | Zone domain | string | n/a | yes |
+|------|-------------|------|---------|:-----:|
+| aae\_license | location of your AAE license file | `any` | n/a | yes |
+| acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | `bool` | `true` | no |
+| aws\_access\_key\_id | AWS access key | `any` | n/a | yes |
+| aws\_region | AWS region | `any` | n/a | yes |
+| aws\_secret\_access\_key | AWS secret key | `any` | n/a | yes |
+| cluster\_description | description for your cluster | `string` | `""` | no |
+| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `any` | n/a | yes |
+| gateway\_host | gateway host | `string` | `""` | no |
+| identity\_host | identity host | `string` | `""` | no |
+| kubernetes\_api\_server | Kubernetes API server URL | `string` | `"https://kubernetes"` | no |
+| kubernetes\_token | Kubernetes API token | `string` | `""` | no |
+| my\_ip\_address | CIDR blocks for ssh access to cluster nodes | `string` | `"0.0.0.0/0"` | no |
+| project\_environment | project environment like dev/prod/stagings | `any` | n/a | yes |
+| project\_name | project name | `any` | n/a | yes |
+| quay\_email | quay user email | `any` | n/a | yes |
+| quay\_password | quay user password | `any` | n/a | yes |
+| quay\_url | quay url in docker registry format, defaults to "quay.io" | `string` | `"quay.io"` | no |
+| quay\_user | quay user name | `any` | n/a | yes |
+| rancher2\_access\_key | Rancher 2 API access key for a user who can create clusters, you can login on Rancher2 and create from the "API & Keys" menu on your account or the URL /apikeys | `any` | n/a | yes |
+| rancher2\_secret\_key | Rancher 2 API secret key for a user who can create clusters, you can login on Rancher2 and create from the "API & Keys" menu on your account or the URL /apikeys | `any` | n/a | yes |
+| rancher2\_url | the URL of the Rancher2 server | `any` | n/a | yes |
+| registry\_host | deployment docker registry | `string` | `""` | no |
+| registry\_password | password for the deployment docker registry | `string` | `"password"` | no |
+| registry\_user | username for the deployment docker registry | `string` | `"registry"` | no |
+| ssh\_public\_key | public key for authentication on cluster nodes | `string` | `""` | no |
+| ssh\_username | username to create user on cluster nodes | `string` | `"aae"` | no |
+| zone\_domain | Zone domain | `any` | n/a | yes |
 
 ## Outputs
 

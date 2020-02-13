@@ -82,30 +82,40 @@ As the terraform providers config is static the terraform command must be split 
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | ~> 2.17 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | string | `"true"` | no |
-| aae\_license | location of your AAE license file | string | n/a | yes |
-| aws\_access\_key\_id | AWS access key | string | n/a | yes |
-| aws\_region | AWS region | string | n/a | yes |
-| aws\_secret\_access\_key | AWS secret key | string | n/a | yes |
-| cluster\_name | name for your cluster, if not set it will be a concatenation of project_name and project_environment | string | n/a | yes |
-| gateway\_host | gateway host | string | `""` | no |
-| identity\_host | identity host | string | `""` | no |
-| kubernetes\_api\_server | Kubernetes API server URL | string | `"https://kubernetes"` | no |
-| kubernetes\_token | Kubernetes API token | string | `""` | no |
-| my\_ip\_address | CIDR blocks for ssh access to cluster nodes | string | `"0.0.0.0/0"` | no |
-| node\_groupname | Group name for the worker nodes | string | `"ng-1"` | no |
-| project\_environment | project environment like dev/prod/stagings | string | n/a | yes |
-| project\_name | project name | string | n/a | yes |
-| quay\_password | quay user password | string | n/a | yes |
-| quay\_url | quay url in docker registry format, defaults to "quay.io" | string | `"quay.io"` | no |
-| quay\_user | quay user name | string | n/a | yes |
-| registry\_host | deployment docker registry | string | `""` | no |
-| registry\_password | password for the deployment docker registry | string | `"password"` | no |
-| registry\_user | username for the deployment docker registry | string | `"registry"` | no |
-| zone\_domain | Zone domain | string | n/a | yes |
+|------|-------------|------|---------|:-----:|
+| aae\_license | location of your AAE license file | `any` | n/a | yes |
+| acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | `bool` | `true` | no |
+| aws\_access\_key\_id | AWS access key | `any` | n/a | yes |
+| aws\_region | AWS region | `any` | n/a | yes |
+| aws\_secret\_access\_key | AWS secret key | `any` | n/a | yes |
+| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `any` | n/a | yes |
+| gateway\_host | gateway host | `string` | `""` | no |
+| identity\_host | identity host | `string` | `""` | no |
+| kubernetes\_api\_server | Kubernetes API server URL | `string` | `"https://kubernetes"` | no |
+| kubernetes\_token | Kubernetes API token | `string` | `""` | no |
+| my\_ip\_address | CIDR blocks for ssh access to cluster nodes | `string` | `"0.0.0.0/0"` | no |
+| node\_groupname | Group name for the worker nodes | `string` | `"ng-1"` | no |
+| project\_environment | project environment like dev/prod/stagings | `any` | n/a | yes |
+| project\_name | project name | `any` | n/a | yes |
+| quay\_password | quay user password | `any` | n/a | yes |
+| quay\_url | quay url in docker registry format, defaults to "quay.io" | `string` | `"quay.io"` | no |
+| quay\_user | quay user name | `any` | n/a | yes |
+| registry\_host | deployment docker registry | `string` | `""` | no |
+| registry\_password | password for the deployment docker registry | `string` | `"password"` | no |
+| registry\_user | username for the deployment docker registry | `string` | `"registry"` | no |
+| zone\_domain | Zone domain | `any` | n/a | yes |
+
+## Outputs
+
+No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
