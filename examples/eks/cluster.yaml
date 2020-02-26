@@ -10,7 +10,7 @@ vpc:
 
 nodeGroups:
   - name: ng-1
-    instanceType: m4.4xlarge
+    instanceType: m4.2xlarge
     minSize: 1
     maxSize: 5
     volumeSize: 100
