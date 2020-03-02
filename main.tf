@@ -59,7 +59,7 @@ nfs-server-provisioner:
 EOF
     ,
   ]
-
+  timeout = 600 //set timeout to 10m 
   depends_on = [kubernetes_secret.quay-registry-secret]
 }
 
