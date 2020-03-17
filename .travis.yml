@@ -30,7 +30,6 @@ install:
 jobs:
   allow_failures:
     - name: deploy application
-    - name: smoketest
   include:
     - name: deploy application
       stage: deploy
