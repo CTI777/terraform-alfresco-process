@@ -27,3 +27,6 @@ variable "helm_service_account" {
   description = "service account used by helm"
 }
 
+variable "vpc_id" {
+  description = "cluster vpc_id"
+}

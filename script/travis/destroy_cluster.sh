@@ -5,5 +5,4 @@ export KUBECONFIG=/home/travis/build/Alfresco/terraform-alfresco-process/example
 export K8S_API_URL=$(kubectl config view -o jsonpath="{.clusters[?(@.name==\"$TF_VAR_cluster_name\")].cluster.server}")
 terraform init
 terraform refresh
-helm ls --all --short | xargs -L1 helm delete --purge
 terraform destroy --force

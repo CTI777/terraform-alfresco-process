@@ -26,6 +26,7 @@ s3:
 EOF
     ,
   ]
+  depends_on = [var.helm_service_account]
 }
 
 resource "null_resource" "aae-registry-htpasswd" {

@@ -47,6 +47,7 @@ module "ingress" {
   cluster_name   = data.aws_eks_cluster.aae-cluster.name
 
   helm_service_account = module.helm.service_account
+  vpc_id = data.aws_eks_cluster.aae-cluster.vpc_config[0].vpc_id
 }
 
 # Install Docker Regisry on AWS

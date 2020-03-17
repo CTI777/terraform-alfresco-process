@@ -14,5 +14,6 @@ storageClass:
 EOF
     ,
   ]
+  timeout = 600 //set timeout to 10m
 }
 
