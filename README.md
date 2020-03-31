@@ -1,4 +1,8 @@
 # Terraform module for AAE
+| branch | status |
+| --- | --- |
+| master | [![Build Status](https://travis-ci.com/Alfresco/terraform-alfresco-process.svg?branch=master)](https://travis-ci.com/Alfresco/terraform-alfresco-process) |
+| develop | [![Build Status](https://travis-ci.org/Alfresco/terraform-alfresco-process.svg?branch=develop)](https://travis-ci.com/Alfresco/terraform-alfresco-process) |
 
 This terraform module allows the installation of AAE on a generic Kubernetes cluster.
 
