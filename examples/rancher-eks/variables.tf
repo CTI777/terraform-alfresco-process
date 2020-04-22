@@ -129,3 +129,7 @@ variable "acs_enabled" {
   description = "install Alfresco Content Services as part of the Alfresco Process Infrastructure"
 }
 
+variable "kubernetes_version" {
+  default     = 1.13
+  description = "kubernetes version for the cluster to be created"
+}

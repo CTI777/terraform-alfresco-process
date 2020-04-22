@@ -10,6 +10,17 @@ data "template_file" "user-data" {
   }
 }
 
+data "aws_ami" "eks_worker_base_ami" {
+  filter {
+    name   = "name"
+    values = ["amazon-eks-node-${var.kubernetes_version}*"]
+  }
+  most_recent = true
+
+  # Owner ID of AWS EKS team
+  owners = ["amazon"]
+}
+
 # Create a new EKS cluster on AWS via Rancher2
 resource "rancher2_cluster" "aae-cluster" {
   name        = local.cluster_name
@@ -27,8 +38,10 @@ resource "rancher2_cluster" "aae-cluster" {
     subnets            = []
     virtual_network    = ""
     user_data          = data.template_file.user-data.rendered
-    kubernetes_version = "1.12"
+    kubernetes_version = var.kubernetes_version
+    ami                = data.aws_ami.eks_worker_base_ami.id
   }
+  depends_on = [data.aws_ami.eks_worker_base_ami]
 }
 
 data "aws_autoscaling_groups" "eks-worker-nodes-asg" {

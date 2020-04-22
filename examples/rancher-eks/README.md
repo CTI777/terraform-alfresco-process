@@ -116,6 +116,7 @@ As the terraform providers config is static the terraform command must be split 
 | ssh\_public\_key | public key for authentication on cluster nodes | `string` | `""` | no |
 | ssh\_username | username to create user on cluster nodes | `string` | `"aae"` | no |
 | zone\_domain | Zone domain | `any` | n/a | yes |
+| kubernetes\_version | kubernetes version for eks | `integer` | 1.13 | yes |
 
 ## Outputs
 

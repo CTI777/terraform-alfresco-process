@@ -61,5 +61,8 @@ ssh_username = "aae"
 
 ssh_public_key = ""
 
+# Kubernetes version for EKS
+kubernetes_version = ""
+
 # Kubernetes deployment settings (automatically generated, do not modify)
 
