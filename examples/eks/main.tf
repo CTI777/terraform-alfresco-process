@@ -47,7 +47,7 @@ module "ingress" {
   cluster_name   = data.aws_eks_cluster.aae-cluster.name
 
   helm_service_account = module.helm.service_account
-  vpc_id = data.aws_eks_cluster.aae-cluster.vpc_config[0].vpc_id
+  vpc_id               = data.aws_eks_cluster.aae-cluster.vpc_config[0].vpc_id
 }
 
 # Install Docker Regisry on AWS
@@ -103,3 +103,14 @@ module "alfresco-process-services" {
   acs_enabled = var.acs_enabled
 }
 
+module "alfresco-content-services" {
+  source = "../../modules/acs"
+
+  cluster_host         = local.cluster_host
+  cluster_domain       = local.cluster_domain
+  helm_service_account = module.helm.service_account
+  acs_enabled          = var.acs_enabled
+  quay_user            = var.quay_user
+  quay_password        = var.quay_password
+  quay_url             = var.quay_url
+}

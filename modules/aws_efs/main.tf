@@ -16,7 +16,7 @@ EOF
   ]
   timeout = 600 //set timeout to 10m
 
-  depends_on = [ aws_efs_file_system.aae-efs,
-    aws_efs_mount_target.aae-efs-mount-target ]
+  depends_on = [aws_efs_file_system.aae-efs,
+  aws_efs_mount_target.aae-efs-mount-target]
 }
 

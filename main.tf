@@ -26,20 +26,6 @@ global:
   keycloak:
     realm: alfresco
     host: "${local.identity_host}"
-  acs:
-    host: "${var.gateway_host}"
-alfresco-infrastructure:
-  persistence:
-    enabled: ${var.aws_efs_dns_name != ""}
-    storageClass:
-      enabled: ${var.aws_efs_dns_name != ""}
-      name: ${var.aws_efs_dns_name != "" ? "default-sc" : ""}
-  activemq:
-    enabled: ${var.acs_enabled ? true : false}
-alfresco-content-services:
-  enabled: ${var.acs_enabled ? true : false}
-  alfresco-digital-workspace:
-    enabled: ${var.acs_enabled ? true : false}
 alfresco-deployment-service:
   alfresco-content-services:
     enabled: ${var.acs_enabled ? true : false}
@@ -56,10 +42,12 @@ alfresco-deployment-service:
     permission: ${var.aws_efs_dns_name != "" ? "ReadWriteMany" : ""}
 nfs-server-provisioner:
   enabled: ${var.aws_efs_dns_name == ""}
+persistence:
+  enabled: true
 EOF
     ,
   ]
-  timeout = 600 //set timeout to 10m 
+  timeout    = 600 //set timeout to 10m 
   depends_on = [kubernetes_secret.quay-registry-secret]
 }
 

@@ -12,14 +12,14 @@ data "aws_route53_zone" "aae" {
 
 resource "aws_route53_record" "ingress" {
 
-  count = length(local.hosts)
+  count   = length(local.hosts)
   zone_id = data.aws_route53_zone.aae.zone_id
   name    = element(local.hosts, count.index)
   type    = "A"
 
   alias {
-  name                   = aws_elb.elb.dns_name
-  zone_id                = aws_elb.elb.zone_id
+    name    = aws_elb.elb.dns_name
+    zone_id = aws_elb.elb.zone_id
 
     evaluate_target_health = false
   }

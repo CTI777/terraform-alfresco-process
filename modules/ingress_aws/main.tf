@@ -32,14 +32,14 @@ resource "aws_security_group" "elb_security_group" {
   vpc_id      = var.vpc_id
 
   lifecycle {
-  ignore_changes = all
+    ignore_changes = all
   }
 }
 
 resource "aws_elb" "elb" {
-  name               = "${var.cluster_name}-elb"
+  name = "${var.cluster_name}-elb"
 
-  subnets = data.aws_subnet_ids.my_vpc.ids
+  subnets         = data.aws_subnet_ids.my_vpc.ids
   security_groups = [aws_security_group.elb_security_group.id]
 
   listener {
@@ -78,32 +78,32 @@ resource "aws_elb" "elb" {
 
 }
 resource "aws_security_group_rule" "allow_http" {
-  type = "ingress"
+  type      = "ingress"
   from_port = 80
-  to_port = 80
-  protocol = "tcp"
+  to_port   = 80
+  protocol  = "tcp"
 
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.elb_security_group.id
 
 }
 
 resource "aws_security_group_rule" "allow_https" {
-  type            = "ingress"
-  from_port       = 443
-  to_port         = 443
-  protocol        = "tcp"
-  cidr_blocks     = [ "0.0.0.0/0" ]
+  type              = "ingress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.elb_security_group.id
 
 }
 
 resource "aws_security_group_rule" "allow_outflow" {
-  type = "egress"
-  from_port = 0
-  to_port = 65535
-  protocol = "tcp"
-  cidr_blocks = ["0.0.0.0/0"]
+  type              = "egress"
+  from_port         = 0
+  to_port           = 65535
+  protocol          = "tcp"
+  cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.elb_security_group.id
 
 }
@@ -113,7 +113,7 @@ data "aws_subnet_ids" "my_vpc" {
 
 }
 
-data "aws_instances" "my_instances_id"{
+data "aws_instances" "my_instances_id" {
   filter {
     name   = "tag:Name"
     values = ["${var.cluster_name}-${var.cluster_name}-node-group-Node"]
@@ -137,12 +137,12 @@ data "aws_security_groups" "eks-worker-nodes" {
 
 resource "aws_security_group_rule" "allow_ebl_to_node_sg" {
 
-  type            = "ingress"
-  from_port       = 0
-  to_port         = 65535
-  protocol        = "tcp"
-  source_security_group_id  = aws_security_group.elb_security_group.id
-  security_group_id = element(data.aws_security_groups.eks-worker-nodes.ids, 2)
+  type                     = "ingress"
+  from_port                = 0
+  to_port                  = 65535
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.elb_security_group.id
+  security_group_id        = element(data.aws_security_groups.eks-worker-nodes.ids, 2)
 
 }
 
