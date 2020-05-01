@@ -72,6 +72,7 @@ As the terraform providers config is static the terraform command must be split 
 
 9. To uninstall everything:
 
+        terraform state rm module.alfresco-content-services.kubernetes_namespace.acs
         terraform destroy
 
 
