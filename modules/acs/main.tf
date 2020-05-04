@@ -80,8 +80,13 @@ externalPort: "443"
 networkpolicysetting:
   enabled: "false"
 alfresco-infrastructure:
-  alfresco-identity-service:
-    enabled: "false"
+  alfresco-infrastructure:
+    alfresco-identity-service:
+      enabled: false
+    nginx-ingress:
+      enabled: false
+  nginx-ingress:
+    enabled: false
   activemq:
     enabled: "true"
   nginx-ingress:
