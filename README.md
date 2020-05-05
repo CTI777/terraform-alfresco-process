@@ -101,6 +101,16 @@ Some module usage examples are provided in the `examples` directory:
 Generated using [pre-commit-terraform](https://github.com/antonbabenko/pre-commit-terraform), run `pre-commit run -a` to update manually.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| helm | ~> 0.10 |
+| kubernetes | ~> 1.7 |
+| local | ~> 1.2 |
+| null | ~> 2.1 |
+
 ## Providers
 
 | Name | Version |
@@ -111,7 +121,7 @@ Generated using [pre-commit-terraform](https://github.com/antonbabenko/pre-commi
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | aae\_license | location of your AAE license file | `any` | n/a | yes |
 | acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | `bool` | `true` | no |
 | aws\_efs\_dns\_name | EFS DNS name to be used for ACS file storage (optional AWS only) | `string` | `""` | no |
