@@ -3,19 +3,26 @@
 Module that sets up a Docker registry on AWS backed by S3.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| helm | ~> 0.10 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | aws | n/a |
-| helm | 0.10.0 |
+| helm | ~> 0.10 |
 | local | n/a |
 | null | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | aws\_access\_key\_id | AWS access key | `any` | n/a | yes |
 | aws\_region | AWS region | `any` | n/a | yes |
 | aws\_secret\_access\_key | AWS secret key | `any` | n/a | yes |

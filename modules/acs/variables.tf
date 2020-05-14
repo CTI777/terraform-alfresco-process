@@ -1,46 +1,15 @@
-variable "cluster_url" {
-  default     = ""
-  description = "cluster url"
-}
-
-variable "cluster_host" {
-  default     = ""
-  description = "cluster host"
-}
-
-variable "cluster_domain" {
-  default     = ""
-  description = "cluster domain"
+variable "namespace" {
+  default     = "acs"
+  description = "kubernetes namespace to install to"
 }
 
 variable "acs_enabled" {
   default     = true
-  description = "install Alfresco Content Services as part of the Alfresco Process Infrastructure"
+  description = "install Alfresco Content Services"
 }
 
-variable "registry_user" {
-  default     = "registry"
-  description = "username for the deployment docker registry"
-}
-
-variable "registry_password" {
-  default     = "password"
-  description = "password for the deployment docker registry"
-}
-
-variable "aws_efs_dns_name" {
-  default     = ""
-  description = "EFS DNS name to be used for ACS file storage (optional AWS only)"
-}
-
-variable "kubernetes_token" {
-  description = "Kubernetes API token"
-  default     = ""
-}
-
-variable "kubernetes_api_server" {
-  description = "Kubernetes API server URL"
-  default     = "https://kubernetes"
+variable "cluster_host" {
+  description = "cluster host"
 }
 
 variable "quay_user" {
@@ -62,6 +31,5 @@ variable "helm_service_account" {
 }
 
 variable "identity_host" {
-  default     = ""
   description = "identity host"
 }

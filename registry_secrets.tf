@@ -17,7 +17,7 @@ resource "kubernetes_secret" "quay-registry-secret" {
   }
 
   data = map(
-    ".dockerconfigjson", "${jsonencode(local.quaydockercfg)}"
+    ".dockerconfigjson", jsonencode(local.quaydockercfg)
   )
 
   type = "kubernetes.io/dockerconfigjson"

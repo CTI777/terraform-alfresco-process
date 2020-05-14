@@ -2,22 +2,26 @@ data "helm_repository" "alfresco" {
   name = "alfresco"
   url  = "https://kubernetes-charts.alfresco.com/stable"
 }
+
 resource "helm_release" "alfresco-content-services" {
+  count      = var.acs_enabled ? 1 : 0
   name       = "acs"
   repository = data.helm_repository.alfresco.url
   chart      = "alfresco-content-services"
-  version    = "3.0.7"
-  namespace  = "acs"
+  version    = "3.0.8"
+  namespace  = var.namespace
 
   values = [
     <<EOF
 global:
-  alfrescoRegistryPullSecrets: "quay-registry-secret"
+  alfrescoRegistryPullSecrets: quay-registry-secret
 repository:
+  image:
+    tag: 6.3.0-EVENTS-1
   replicaCount: 1
   ingress:
     hostName: ${var.cluster_host}
-    path: "/alfresco"
+    path: /alfresco
     maxUploadSize: "500m"
   readinessProbe:
     initialDelaySeconds: 140
@@ -45,9 +49,6 @@ share:
   replicaCount: 1
   ingress:
     hostName: ${var.cluster_host}
-apiexplorer:
-  ingress:
-    path: /api-explorer
 imagemagick:
   replicaCount: 1
 libreoffice:
@@ -63,34 +64,20 @@ transformmisc:
 alfresco-digital-workspace:
   enabled: false
 postgresql:
-  imageTag: "11.3"
+  imageTag: 11.3
   persistence:
     existingClaim: null
 alfresco-sync-service:
   enabled: false
-  alfresco-infrastructure:
-    persistence:
-      enabled: true
-  alfresco-identity-service:
-    ingress:
-      enabled: true
 externalHost: ${var.cluster_host}
-externalProtocol: "https"
-externalPort: "443"
-networkpolicysetting:
-  enabled: "false"
+externalProtocol: https
+externalPort: 443
 alfresco-infrastructure:
   alfresco-infrastructure:
     alfresco-identity-service:
       enabled: false
     nginx-ingress:
       enabled: false
-  nginx-ingress:
-    enabled: false
-  activemq:
-    enabled: "true"
-  nginx-ingress:
-    enabled: "false"
   persistence:
     enabled: true
     baseSize: 2Gi
@@ -100,10 +87,12 @@ alfresco-infrastructure:
         - ReadWriteMany
       name: default-sc
 EOF
-    ,
   ]
+
   timeout = 900
   //set timeout to 15m
+
   depends_on = [
- kubernetes_secret.quay-registry-secret]
+    kubernetes_secret.quay-registry-secret
+  ]
 }

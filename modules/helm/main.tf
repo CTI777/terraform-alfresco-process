@@ -27,10 +27,10 @@ resource "kubernetes_cluster_role_binding" "tiller-clusterrole-binding" {
 
 resource "null_resource" "wait-for-tiller" {
   triggers = {
-    always = "${timestamp()}"
+    always = timestamp()
   }
   provisioner "local-exec" {
-    command =<<EOF
+    command = <<EOF
 counter=0
 timeout=90
 interval=2

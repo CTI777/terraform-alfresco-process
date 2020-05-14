@@ -24,7 +24,6 @@ s3:
   region: ${aws_s3_bucket.aae-registry.region}
   bucket: ${aws_s3_bucket.aae-registry.bucket}
 EOF
-    ,
   ]
   depends_on = [var.helm_service_account]
 }

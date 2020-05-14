@@ -77,34 +77,44 @@ As the terraform providers config is static the terraform command must be split 
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| aws | ~> 2.17 |
+| helm | ~> 0.10 |
+| rancher2 | 1.8.1 |
+| template | ~> 2.1 |
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | aws | ~> 2.17 |
 | null | n/a |
-| rancher2 | ~> 1.0 |
+| rancher2 | 1.8.1 |
 | template | ~> 2.1 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | aae\_license | location of your AAE license file | `any` | n/a | yes |
 | acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | `bool` | `true` | no |
 | aws\_access\_key\_id | AWS access key | `any` | n/a | yes |
 | aws\_region | AWS region | `any` | n/a | yes |
 | aws\_secret\_access\_key | AWS secret key | `any` | n/a | yes |
 | cluster\_description | description for your cluster | `string` | `""` | no |
-| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `any` | n/a | yes |
+| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `any` | `null` | no |
 | gateway\_host | gateway host | `string` | `""` | no |
 | identity\_host | identity host | `string` | `""` | no |
 | kubernetes\_api\_server | Kubernetes API server URL | `string` | `"https://kubernetes"` | no |
 | kubernetes\_token | Kubernetes API token | `string` | `""` | no |
+| kubernetes\_version | kubernetes version for the cluster to be created | `number` | `1.13` | no |
 | my\_ip\_address | CIDR blocks for ssh access to cluster nodes | `string` | `"0.0.0.0/0"` | no |
-| project\_environment | project environment like dev/prod/stagings | `any` | n/a | yes |
-| project\_name | project name | `any` | n/a | yes |
-| quay\_email | quay user email | `any` | n/a | yes |
+| project\_environment | project environment like dev/prod/staging | `any` | `null` | no |
+| project\_name | project name | `any` | `null` | no |
 | quay\_password | quay user password | `any` | n/a | yes |
 | quay\_url | quay url in docker registry format, defaults to "quay.io" | `string` | `"quay.io"` | no |
 | quay\_user | quay user name | `any` | n/a | yes |
@@ -117,7 +127,6 @@ As the terraform providers config is static the terraform command must be split 
 | ssh\_public\_key | public key for authentication on cluster nodes | `string` | `""` | no |
 | ssh\_username | username to create user on cluster nodes | `string` | `"aae"` | no |
 | zone\_domain | Zone domain | `any` | n/a | yes |
-| kubernetes\_version | kubernetes version for eks | `integer` | 1.13 | yes |
 
 ## Outputs
 

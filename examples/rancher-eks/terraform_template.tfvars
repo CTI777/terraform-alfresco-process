@@ -29,9 +29,6 @@ quay_password = ""
 # quay url in docker registry format, defaults to "quay.io"
 quay_url = "quay.io"
 
-# quay user email
-quay_email = ""
-
 # Stack configuration settings
 
 # name of your project

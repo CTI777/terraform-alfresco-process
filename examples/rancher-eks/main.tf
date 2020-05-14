@@ -79,12 +79,11 @@ module "alfresco-process-services" {
 module "alfresco-content-services" {
   source = "../../modules/acs"
 
+  acs_enabled          = var.acs_enabled
   cluster_host         = local.gateway_host
   identity_host        = local.identity_host
   helm_service_account = module.helm.service_account
-  acs_enabled          = var.acs_enabled
   quay_user            = var.quay_user
   quay_password        = var.quay_password
   quay_url             = var.quay_url
-  aws_efs_dns_name = module.aws_efs.aws_efs_dns_name
 }

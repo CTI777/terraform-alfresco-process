@@ -49,15 +49,17 @@ variable "http" {
 
 # Custom settings for your cluster
 variable "project_name" {
+  default     = null
   description = "project name"
 }
 
 variable "project_environment" {
+  default     = null
   description = "project environment like dev/prod/staging"
 }
 
 variable "cluster_name" {
-  default     = ""
+  default     = null
   description = "name for your cluster, if not set it will be a concatenation of project_name and project_environment"
 }
 

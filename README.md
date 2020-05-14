@@ -125,14 +125,14 @@ Generated using [pre-commit-terraform](https://github.com/antonbabenko/pre-commi
 | aae\_license | location of your AAE license file | `any` | n/a | yes |
 | acs\_enabled | install Alfresco Content Services as part of the Alfresco Process Infrastructure | `bool` | `true` | no |
 | aws\_efs\_dns\_name | EFS DNS name to be used for ACS file storage (optional AWS only) | `string` | `""` | no |
-| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `string` | `""` | no |
+| cluster\_name | name for your cluster, if not set it will be a concatenation of project\_name and project\_environment | `any` | `null` | no |
 | gateway\_host | gateway host name | `any` | n/a | yes |
 | helm\_service\_account | service account used by helm | `string` | `"tiller"` | no |
 | http | use http rather than https for urls | `string` | `"false"` | no |
 | kubernetes\_api\_server | Kubernetes API server URL | `string` | `"https://kubernetes"` | no |
 | kubernetes\_token | Kubernetes API token | `string` | `""` | no |
-| project\_environment | project environment like dev/prod/staging | `any` | n/a | yes |
-| project\_name | project name | `any` | n/a | yes |
+| project\_environment | project environment like dev/prod/staging | `any` | `null` | no |
+| project\_name | project name | `any` | `null` | no |
 | quay\_password | quay user password | `any` | n/a | yes |
 | quay\_url | quay url in docker registry format, defaults to "quay.io" | `string` | `"quay.io"` | no |
 | quay\_user | quay user name | `any` | n/a | yes |

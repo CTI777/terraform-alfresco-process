@@ -39,12 +39,11 @@ module "helm" {
 module "ingress" {
   source = "../../modules/ingress_aws"
 
-  gateway_host   = local.gateway_host
-  cluster_domain = local.cluster_domain
-  identity_host  = local.identity_host
-  registry_host  = local.registry_host
-  zone_domain    = var.zone_domain
-  cluster_name   = data.aws_eks_cluster.aae-cluster.name
+  gateway_host  = local.gateway_host
+  identity_host = local.identity_host
+  registry_host = local.registry_host
+  zone_domain   = var.zone_domain
+  cluster_name  = data.aws_eks_cluster.aae-cluster.name
 
   helm_service_account = module.helm.service_account
   vpc_id               = data.aws_eks_cluster.aae-cluster.vpc_config[0].vpc_id
@@ -106,10 +105,10 @@ module "alfresco-process-services" {
 module "alfresco-content-services" {
   source = "../../modules/acs"
 
-  cluster_host         = local.cluster_host
-  cluster_domain       = local.cluster_domain
-  helm_service_account = module.helm.service_account
   acs_enabled          = var.acs_enabled
+  cluster_host         = local.gateway_host
+  identity_host        = local.identity_host
+  helm_service_account = module.helm.service_account
   quay_user            = var.quay_user
   quay_password        = var.quay_password
   quay_url             = var.quay_url

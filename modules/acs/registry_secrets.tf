@@ -20,11 +20,11 @@ locals {
 resource "kubernetes_secret" "quay-registry-secret" {
   metadata {
     name      = "quay-registry-secret"
-    namespace = "acs"
+    namespace = var.namespace
   }
 
   data = map(
-    ".dockerconfigjson", "${jsonencode(local.quaydockercfg)}"
+    ".dockerconfigjson", jsonencode(local.quaydockercfg)
   )
 
   type = "kubernetes.io/dockerconfigjson"

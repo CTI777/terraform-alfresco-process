@@ -23,7 +23,6 @@ controller:
       http: http
       https: http
 EOF
-    ,
   ]
 }
 resource "aws_security_group" "elb_security_group" {

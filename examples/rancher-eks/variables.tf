@@ -26,14 +26,17 @@ variable "aws_secret_access_key" {
 
 # settings for your cluster
 variable "project_name" {
+  default     = null
   description = "project name"
 }
 
 variable "project_environment" {
-  description = "project environment like dev/prod/stagings"
+  default     = null
+  description = "project environment like dev/prod/staging"
 }
 
 variable "cluster_name" {
+  default     = null
   description = "name for your cluster, if not set it will be a concatenation of project_name and project_environment"
 }
 
@@ -72,10 +75,6 @@ variable "quay_user" {
 
 variable "quay_password" {
   description = "quay user password"
-}
-
-variable "quay_email" {
-  description = "quay user email"
 }
 
 variable "zone_domain" {

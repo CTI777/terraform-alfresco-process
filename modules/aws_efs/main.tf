@@ -12,7 +12,6 @@ storageClass:
   reclaimPolicy: "Delete"
   name: "default-sc"
 EOF
-    ,
   ]
   timeout = 600 //set timeout to 10m
 
